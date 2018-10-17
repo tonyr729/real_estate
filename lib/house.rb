@@ -37,4 +37,12 @@ class House
       room.area
     end.reverse
   end
+
+  def rooms_by_category
+    result = @rooms.reduce({}) do |grouped_rooms, room|
+      grouped_rooms[room.category] = [] if not grouped_rooms[room.category]
+      grouped_rooms[room.category] << room
+      grouped_rooms
+    end
+  end
 end
