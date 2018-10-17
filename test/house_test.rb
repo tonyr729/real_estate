@@ -49,6 +49,17 @@ class HouseTest < MiniTest::Test
     @house.add_room(@room_2)
     @house.add_room(@room_3)
     @house.add_room(@room_4)
+
     assert_equal 1900, @house.area
+  end
+
+  def test_it_can_calculate_price_per_square_foot
+    house = House.new("$400000!!", "123 sugar lane")
+    house.add_room(@room_1)
+    house.add_room(@room_2)
+    house.add_room(@room_3)
+    house.add_room(@room_4)
+
+    assert_equal 210.53, house.price_per_square_foot
   end
 end
