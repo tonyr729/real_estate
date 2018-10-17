@@ -20,4 +20,11 @@ class House
       room.category == category
     end
   end
+
+  def area
+    @rooms.reduce(0) do |total_area, room|
+      total_area += room.area
+      total_area
+    end
+  end
 end
